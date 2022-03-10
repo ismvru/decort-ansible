@@ -1,5 +1,7 @@
 # Ansible runner in Docker for Digital Energy Cloud Solutions
 
+[![Build Status](https://ci.ismv.ru/api/badges/IsaevTech/decort-ansible/status.svg)](https://ci.ismv.ru/IsaevTech/decort-ansible)
+
 Docker container with ansible and ansible module [rudecs/decort-ansible](https://github.com/rudecs/decort-ansible)
 
 ## Build
