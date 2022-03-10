@@ -11,5 +11,4 @@ RUN git clone https://github.com/rudecs/decort-ansible.git /decort-ansible \
 && mv /decort-ansible/module_utils/decort_utils.py /usr/share/ansible/plugins/module_utils \
 && rm -rf /decort-ansible
 WORKDIR /ansible
-# ansible-config dump | grep DEFAULT_MODULE_PATH
 CMD ["ansible-playbook"]
