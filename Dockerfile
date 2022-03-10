@@ -1,7 +1,7 @@
 FROM python:3-slim
 COPY Dockerfile req.txt /
 RUN apt-get -y update \
-&& apt-get --no-install-recommends -y install python3-kerberos git \
+&& apt-get --no-install-recommends -y install python3-kerberos git sshpass \
 && apt-get clean all \
 && rm -rf /var/lib/apt/lists/* \
 && pip --no-cache-dir install -r /req.txt
