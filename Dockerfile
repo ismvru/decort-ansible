@@ -1,4 +1,6 @@
 FROM python:3-slim
+RUN mkdir /etc/ansible
+COPY ansible.cfg /etc/ansible
 COPY Dockerfile req.txt /
 RUN apt-get -y update \
 && apt-get --no-install-recommends -y install python3-kerberos git sshpass \
