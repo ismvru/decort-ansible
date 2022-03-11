@@ -1,3 +1,2 @@
-test*.yml
-test*.sh
+test*
 .venv
