@@ -76,8 +76,6 @@ steps:
       status:
         - success
         - failure
-      event:
-        - tag
     depends_on:
       - Lint Docker
       - Lint Yaml
@@ -94,6 +92,8 @@ steps:
       status:
         - success
         - failure
+      event:
+        - tag
     depends_on:
       - Lint Docker
       - Lint Yaml
