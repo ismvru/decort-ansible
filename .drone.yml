@@ -83,7 +83,7 @@ steps:
       - Lint Yaml
       - Lint Markdown
       - Analyze with sonar
-  - name: send tg message
+  - name: send tg message tag
     image: appleboy/drone-telegram
     settings:
       token:
