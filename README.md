@@ -4,10 +4,26 @@
 
 Docker container with ansible and ansible module [rudecs/decort-ansible](https://github.com/rudecs/decort-ansible)
 
+## Tags
+
+- `repo.ismv.ru/decort-ansible:latest` - latest build based on `python:3-slim`
+- `repo.ismv.ru/decort-ansible:VERSION` - build with VERSION (see tags) based on `python:3-slim`
+- `repo.ismv.ru/decort-ansible:latest-alpine` - latest build based on `python:3-alpine`
+- `repo.ismv.ru/decort-ansible:VERSION-alpine` - build with VERSION (see tags) based on `python:3-alpine`, started from `0.0.6`
+
+## Dockerfiles
+
+[dockerfiles/alpine/Dockerfile](dockerfiles/alpine/Dockerfile) - Build image based on `python:3-alpine`
+[dockerfiles/slim/Dockerfile](dockerfiles/slim/Dockerfile) - Build image based on `python:3-slim` (Debian)
+
 ## Build
 
 ```bash
-Docker build .
+# Alpine image
+docker build -f dockerfiles/alpine/Dockerfile .
+
+# Debian image
+docker build -f dockerfiles/slim/Dockerfile .
 ```
 
 ## Usage
