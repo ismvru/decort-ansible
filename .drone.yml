@@ -61,10 +61,10 @@ steps:
         - latest-alpine
         - ${DRONE_TAG}-alpine
     depends_on:
-        - Lint Docker
-        - Lint Yaml
-        - Lint Markdown
-        - Analyze with sonar
+      - Lint Docker
+      - Lint Yaml
+      - Lint Markdown
+      - Analyze with sonar
   - name: send tg message
     image: appleboy/drone-telegram
     settings:
