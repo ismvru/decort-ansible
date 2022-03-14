@@ -39,6 +39,11 @@ steps:
       tags:
         - latest
         - ${DRONE_TAG}
+      depends_on:
+        - Lint Docker
+        - Lint Yaml
+        - Lint Markdown
+        - Analyze with sonar
   - name: Build and push docker based on python:3-alpine
     image: plugins/docker
     when:
@@ -55,6 +60,11 @@ steps:
       tags:
         - latest-alpine
         - ${DRONE_TAG}-alpine
+    depends_on:
+        - Lint Docker
+        - Lint Yaml
+        - Lint Markdown
+        - Analyze with sonar
   - name: send tg message
     image: appleboy/drone-telegram
     settings:
@@ -66,3 +76,28 @@ steps:
       status:
         - success
         - failure
+      event:
+        - tag
+    depends_on:
+      - Lint Docker
+      - Lint Yaml
+      - Lint Markdown
+      - Analyze with sonar
+  - name: send tg message
+    image: appleboy/drone-telegram
+    settings:
+      token:
+        from_secret: tg_token
+      to:
+        from_secret: tg_to
+    when:
+      status:
+        - success
+        - failure
+    depends_on:
+      - Lint Docker
+      - Lint Yaml
+      - Lint Markdown
+      - Analyze with sonar
+      - Build and push docker based on python:3-slim
+      - Build and push docker based on python:3-alpine
